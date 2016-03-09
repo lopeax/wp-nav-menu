@@ -22,3 +22,8 @@ Add the walker class into the ```wp_nav_menu()``` function as below
     ?>
 </nav>
 ```
+
+## Additional Information
+[```nav.css```](../blob/master/nav.css) was crafted to accompany this to give some appropriate styling, but this can be some custom css
+
+It is also recommended to add in [```waves.css```](../blob/master/waves.css) and [```waves.js```](../blob/master/waves.js) in order to get a nice click effect as the walker comes with the ```waves-effect``` css class on the relevant elements
