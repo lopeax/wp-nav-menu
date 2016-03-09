@@ -1,0 +1,253 @@
+.mobile-nav {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.mobile-nav .menu-main-menu-container {
+    background: #FFFFFF;
+    /*
+    * Max height to add a scrollbar in case
+    * list goes beyond the page height, recommended
+    * to change to calc(100vh - $navheight)
+    * using vh to get the screenheight instead of %
+    */
+    max-height: 75vh;
+    opacity: 0;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: transform 0.3s, opacity 0.3s;
+            transition: transform 0.3s, opacity 0.3s;
+    width: 300px;
+    z-index: 20;
+}
+
+#mobile-nav:checked ~ .menu-main-menu-container {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+}
+
+.mobile-nav .menu-main-menu-container ul {
+    float: left;
+    list-style: none;
+    margin-left: 15px;
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: max-height 0.3s;
+            transition: max-height 0.3s;
+    width: calc(100% - 15px);
+}
+
+.mobile-nav .menu-main-menu-container > ul {
+    margin: 0;
+    max-height: initial;
+    width: 100%;
+}
+
+.mobile-nav .menu-main-menu-container ul li {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+.mobile-nav .menu-main-menu-container ul li a {
+    color: rgba(0,0,0,0.79);
+    display: block;
+    float: left;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.75px;
+    line-height: 24px;
+    margin-left: 0;
+    overflow: hidden;
+    padding: 12px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+}
+
+.mobile-nav .menu-main-menu-container ul li a:focus,
+.mobile-nav .menu-main-menu-container ul li a:hover {
+    background: rgba(0,0,0,0.1);
+    outline: none;
+}
+
+.mobile-nav .nav-check {
+    left: -9999px;
+    position: fixed;
+    top: 0;
+}
+
+.mobile-nav .has-children {
+    padding-right: 48px;
+}
+
+.mobile-nav .has-children > ul {
+    width: calc(100% + 33px);
+}
+
+.mobile-nav .arrow {
+    background: rgba(0,0,0,0.03);
+    height: 48px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+    width: 48px;
+}
+
+.mobile-nav .arrow:before {
+    border: 8px solid transparent;
+    border-top: 10px solid rgba(0,0,0,0.2);
+    content: '';
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: calc(50% + 4px);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: transform 0.3s, top 0.3s;
+            transition: transform 0.3s, top 0.3s;
+    width: 0;
+}
+
+.mobile-nav .nav-check:focus + .arrow,
+.mobile-nav .arrow:hover,
+.mobile-nav .nav-check:checked + .arrow {
+    background: rgba(0,0,0,0.09);
+}
+
+.mobile-nav .nav-check:checked + .arrow:before {
+    top: calc(50% - 6px);
+    -webkit-transform: translate(-50%, -50%) rotate(180deg);
+            transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.mobile-nav .nav-check:checked ~ ul {
+    max-height: 250px;
+}
+
+/*==============================================================================
+ Burger
+==============================================================================*/
+.burger-check#mobile-nav {
+    left: -9999px;
+    position: fixed;
+    top: 0;
+}
+
+.burger,
+.burger:after,
+.burger *,
+.burger *:before,
+.burger *:after,
+.header-nav *,
+.header-nav *:before,
+.header-nav *:after {
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+}
+
+.burger-check {
+    display: none;
+}
+
+/*--------------------------------------
+ Sets the actionable area for the burger
+ including a label for usability
+--------------------------------------*/
+.burger {
+    cursor: pointer;
+    float: left;
+    height: 60px;
+    left: 0;
+    margin-bottom: 0;
+    position: relative;
+    width: 60px;
+    z-index: 9001;
+}
+
+.burger:after {
+    bottom: 7px;
+    color: #494949;
+    content: 'Menu';
+    font-size: 13px;
+    font-weight: 300;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+/*--------------------------------------
+ Creates the look of the burger icon
+ using the inner span and pseudo-elements
+--------------------------------------*/
+.burger span,
+.burger span:before,
+.burger span:after {
+    background: #494949;
+    border-radius: 0.2em;
+    height: 4px;
+    left: 10px;
+    position: absolute;
+    top: 22px;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+    width: 40px;
+}
+
+/* Reset the left and create the pseudo-element */
+.burger span:before,
+.burger span:after {
+    content: '';
+    left: 0;
+}
+
+/* Top bar position */
+.burger span:before {
+    top: -8px;
+}
+
+/* Bottom bar position */
+.burger span:after {
+    top: 8px;
+}
+
+/* Get rid of more on action (IE9 or higher) */
+.burger-check:checked + .burger:after {
+    content: '';
+}
+/* Get rid of the middle bar on action (IE9 or higher) */
+
+.burger-check:checked + .burger span {
+    height: 0;
+    width: 0;
+}
+
+/* Moves the top and bottom bars to the middle on action (IE9 or higher) */
+.burger-check:checked + .burger span:before,
+.burger-check:checked + .burger span:after {
+    top: 6px;
+}
+
+/* Rotates the top bar on action with full browser support (IE9 or higher) */
+.burger-check:checked + .burger span:before {
+    -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+            transform: rotate(225deg);
+}
+
+/* Rotates the bottom bar on action with full browser support (IE9 or higher) */
+.burger-check:checked + .burger span:after {
+    -webkit-transform: rotate(-225deg);
+        -ms-transform: rotate(-225deg);
+            transform: rotate(-225deg);
+}
