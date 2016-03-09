@@ -2,7 +2,7 @@
 A WordPress navigation menu with checkboxes (for pure css dropdowns)
 
 ## Usage
-Add the walker class into the ```wp_nav_menu()``` function as below
+Add the walker class into the `wp_nav_menu()` function as below
 
 ```php
 <?php require_once "/path/to/walker_with_checkboxes.php"; ?>
@@ -24,6 +24,6 @@ Add the walker class into the ```wp_nav_menu()``` function as below
 ```
 
 ## Additional Information
-[```nav.css```](../master/nav.css) was crafted to accompany this to give some appropriate styling, but this can be some custom css
+[`nav.css`](../master/nav.css) was crafted to accompany this to give some appropriate styling, but this can be some custom css
 
-It is also recommended to add in [```waves.css```](../master/waves.css) and [```waves.min.js```](../master/waves.min.js) in order to get a nice click effect as the walker comes with the ```waves-effect``` css class on the relevant elements
+It is also recommended to add in [`waves.css`](../master/waves.css) and [`waves.min.js`](../master/waves.min.js) in order to get a nice click effect as the walker comes with the `waves-effect` css class on the relevant elements
