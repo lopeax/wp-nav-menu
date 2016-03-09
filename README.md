@@ -16,8 +16,6 @@ Add the walker class into the ```wp_nav_menu()``` function as below
         wp_nav_menu(
             array(
                 'theme_location' => 'main-navigation',
-                'container_class' => 'menu',
-                'menu_class' => '',
                 'walker' => new Walker_With_Checkboxes()
             )
         );
